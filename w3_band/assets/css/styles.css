@@ -6,6 +6,7 @@
 
 html {
   font-family: Arial, Helvetica, sans-serif;
+  scroll-behavior: smooth;
 }
 
 /* 
@@ -21,12 +22,83 @@ html {
 4. Kiểu dáng (kiểu chữ, hình tròn, hình vuông,...)
  */
 
+/* Common */
+
+.btn {
+  color: #fff;
+  background-color: #000;
+  text-decoration: none;
+  padding: 11px 16px;
+  display: inline-block;
+  margin-top: 15px;
+  cursor: pointer;
+  border: none;
+  text-align: center;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.btn:hover {
+  cursor: pointer;
+  color: #000;
+  background-color: #ccc;
+}
+
 .clear {
   clear: both;
 }
 
 .text-white {
   color: white !important;
+}
+
+.text-center {
+  text-align: center !important;
+}
+
+.pull-right {
+  float: right !important;
+}
+
+.mt-8 {
+  margin-top: 8px !important;
+}
+
+.mt-16 {
+  margin-top: 16px !important;
+}
+
+.mt-32 {
+  margin-top: 32px !important;
+}
+
+.row {
+  margin-left: -8px;
+  margin-right: -8px;
+}
+
+.row::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.col {
+  float: left;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.col-full {
+  width: 100%;
+}
+
+.col-half {
+  width: 50%;
+}
+
+.col-third {
+  width: 33.33333%;
 }
 
 #main {
@@ -40,6 +112,7 @@ html {
   left: 0;
   right: 0;
   z-index: 1;
+  /* overflow: hidden; */
 }
 
 #nav {
@@ -101,16 +174,33 @@ html {
   font-size: 14px;
 }
 
+#header .mobile-menu-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: none;
+}
+
+#header .mobile-menu-btn,
 #header .search-btn {
   float: right;
   padding: 0 21px;
   cursor: pointer;
 }
 
+#header .mobile-menu-btn:hover {
+  background-color: #ccc;
+}
+
+#header .mobile-menu-btn:hover .menu-icon {
+  color: #000;
+}
+
 #header .search-btn:hover {
   background-color: #f44336;
 }
 
+#header .menu-icon,
 #header .search-icon {
   color: white;
   font-size: 20px;
@@ -120,7 +210,7 @@ html {
 #slider {
   margin-top: 46px;
   padding-top: 50%;
-  background: url(/assets/img/chicago.jpg) no-repeat top center / cover;
+  background: url("/assets/img/chicago.jpg") no-repeat top center / cover;
   position: relative;
 }
 
@@ -140,15 +230,19 @@ html {
 #slider .text-description {
   font-size: 15px;
   margin-top: 25px;
+  text-shadow: 0 0 1px #000;
 }
 
 #content {
 }
 
-.content-section {
-  width: 800px;
-  margin: 0 auto;
-  padding: 64px 0px;
+#content .content-section {
+  min-width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 64px 0px 112px;
+  padding-left: 16px;
+  padding-right: 16px;
 }
 
 #content .section-heading {
@@ -174,14 +268,12 @@ html {
 }
 
 #content .member-list {
-  margin-top: 48px;
+  margin-top: 32px;
 }
 
-#content .member-item {
-  float: left;
+/* #content .member-item {
   text-align: center;
-  width: calc(100% / 3);
-}
+} */
 
 #content .member-name {
   font-size: 15px;
@@ -232,14 +324,13 @@ html {
 /* Place  */
 
 .places-list {
-  margin: 32px -8px 48px;
+  margin-top: 32px;
+  /* margin-bottom: 48px; */
 }
 
-.place-item {
-  float: left;
-  width: calc(100% / 3);
-  padding: 8px;
-}
+/* .place-item {
+  width: 33.33333%;
+} */
 
 .place-img {
   width: 100%;
@@ -271,24 +362,7 @@ html {
   line-height: 1.4;
 }
 
-.place-buy-btn {
-  color: #fff;
-  background-color: #000;
-  text-decoration: none;
-  padding: 11px 16px;
-  display: inline-block;
-  margin-top: 15px;
-  cursor: pointer;
-}
-
-.place-buy-btn:hover {
-  color: #000;
-  background-color: #ccc;
-}
-
-#footer {
-}
-
+/* Modal  */
 .modal {
   position: fixed;
   top: 0;
@@ -393,4 +467,80 @@ html {
     transform: translateY(0);
     opacity: 1;
   }
+}
+
+/* Contact from  */
+
+.contact-content {
+  margin-top: 48px;
+}
+
+.contact-info {
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+.contact-info i[class*="ti-"] {
+  width: 30px;
+  display: inline-block;
+}
+
+.contact-info a {
+  color: #101aef;
+  opacity: 0.8;
+}
+
+.contact-info a:hover {
+  opacity: 1;
+}
+
+.contact-form {
+  font-size: 15px;
+}
+
+.contact-form .form-control {
+  padding: 10px;
+  border: 1px solid #ccc;
+  width: 100%;
+}
+
+/* .contact-form .form-submit-btn {
+  background-color: #000;
+  color: #fff;
+  border: 1px solid #000;
+  padding: 10px 16px;
+  float: right;
+} */
+
+/* Map Section*/
+
+.map-section img {
+  width: 100%;
+}
+/* Footer  */
+#footer {
+  padding: 64px 16px;
+  text-align: center;
+}
+
+#footer .socials-list {
+  font-size: 24px;
+}
+
+#footer .socials-list a {
+  color: rgba(0, 0, 0, 0.6);
+  text-decoration: none;
+}
+#footer .copyright a:hover,
+#footer .socials-list a:hover {
+  color: rgba(0, 0, 0, 0.4);
+}
+
+#footer .copyright {
+  margin-top: 15px;
+  color: rgba(0, 0, 0, 0.6);
+}
+
+#footer .copyright a {
+  color: rgba(0, 0, 0, 0.6);
 }
